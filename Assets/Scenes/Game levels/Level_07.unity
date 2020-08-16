@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 158000441}
   - component: {fileID: 158000440}
   - component: {fileID: 158000439}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Black World Foreground (Black)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1601,7 +1601,7 @@ PlatformEffector2D:
     m_Bits: 4294967295
   m_RotationalOffset: 0
   m_UseOneWay: 1
-  m_UseOneWayGrouping: 1
+  m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
@@ -1834,7 +1834,7 @@ GameObject:
   - component: {fileID: 207665237}
   - component: {fileID: 207665236}
   - component: {fileID: 207665235}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: White World Foreground (White)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3135,7 +3135,7 @@ PlatformEffector2D:
     m_Bits: 4294967295
   m_RotationalOffset: 0
   m_UseOneWay: 1
-  m_UseOneWayGrouping: 1
+  m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
@@ -3311,7 +3311,7 @@ GameObject:
   - component: {fileID: 295166541}
   - component: {fileID: 295166540}
   - component: {fileID: 295166539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: White World Base (White)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4804,6 +4804,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1275092483
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 956242444138750676, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750680, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b0d681b76fdb134a9cd3474c39a6237, type: 3}
 --- !u!1 &1430868652
 GameObject:
   m_ObjectHideFlags: 0
@@ -59580,7 +59649,7 @@ GameObject:
   - component: {fileID: 1835299017}
   - component: {fileID: 1835299016}
   - component: {fileID: 1835299015}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Black World Base (Black)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

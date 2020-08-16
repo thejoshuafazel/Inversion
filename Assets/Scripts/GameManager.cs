@@ -5,6 +5,7 @@ public enum WORLD_TYPE { WHITE, BLACK }
 public class GameManager : MonoBehaviour
 {
     public WORLD_TYPE _startingWorld;
+    //public Color _levelColors;
     public GameObject[] _worlds;
 
     private int _currentWorldIndex;
@@ -39,3 +40,4 @@ public class GameManager : MonoBehaviour
         WorldSwitcher(worldToLoad);
     }
 }
+

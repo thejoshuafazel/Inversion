@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         ReadInput();
+        //IsGrounded();//-------------Code for debugging only
     }
 
     private void CacheData()
