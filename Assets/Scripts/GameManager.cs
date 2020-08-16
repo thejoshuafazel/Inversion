@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextWorld()
     {
         _currentWorldIndex = (_currentWorldIndex + 1) % _worlds.Length;
-        WORLD_TYPE worldToLoad = _worlds[_currentWorldIndex].GetComponent<WorldSettings>().worldType;
+        WORLD_TYPE worldToLoad = _worlds[_currentWorldIndex].GetComponent<WorldSettings>()._worldType;
         WorldSwitcher(worldToLoad);
     }
 }
