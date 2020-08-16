@@ -1,21 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    private static LevelLoader _instance;
 
+    //private void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
 
+    //    LevelLoader _instance = FindObjectOfType<LevelLoader>();
 
-    // Start is called before the first frame update
-    void Start()
+    //    if (_instance != null && _instance != this)
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //    else
+    //    {
+    //        _instance = this;
+    //    }
+    //}
+
+    public void LoadNextLevel()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadMainMenu()
     {
-        
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadOptions()
+    {
+        SceneManager.LoadScene("Options");
+    }
+
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
