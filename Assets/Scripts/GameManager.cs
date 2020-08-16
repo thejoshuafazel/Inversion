@@ -1,44 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
-public enum WORLD_TYPE { WHITE, BLACK}
+public enum WORLD_TYPE { WHITE, BLACK }
 
 public class GameManager : MonoBehaviour
 {
-    public bool startWorldIsBlack;
-    public GameObject[] worldGrids;
+    public WORLD_TYPE _startingWorld;
+    public GameObject[] _worlds;
 
-    private WORLD_TYPE currentWorld;
+    private int _currentWorldIndex;
 
-    private void Awake() {
-        if (startWorldIsBlack) {
-            currentWorld = WORLD_TYPE.BLACK;
-        } else {
-            currentWorld = WORLD_TYPE.WHITE;
-        }
-        WorldSwitcher(currentWorld);
+    private void Awake()
+    {
+        WorldSwitcher(_startingWorld);
     }
 
-    public void WorldSwitcher(WORLD_TYPE worldToLoad) {
-        foreach (GameObject worldGrid in worldGrids) {
-            if (worldGrid.GetComponent<WorldSettings>().WorldType == worldToLoad) {
+    private void WorldSwitcher(WORLD_TYPE worldToLoad)
+    {
+        for (int worldNumber = 0; worldNumber < _worlds.Length; worldNumber++)
+        {
+            GameObject worldGrid = _worlds[worldNumber];
+            WorldSettings worldSetting = worldGrid.GetComponent<WorldSettings>();
+            if (worldSetting.WorldType == worldToLoad)
+            {
                 worldGrid.SetActive(true);
-            } else { worldGrid.SetActive(false); }
+                _currentWorldIndex = worldNumber;
+            }
+            else
+            {
+                worldGrid.SetActive(false);
+            }
         }
-        currentWorld = worldToLoad;
     }
 
-    public WORLD_TYPE NextWorld() {
-        int worldID = (int)currentWorld;
-        int worldIDCount = Enum.GetNames(typeof(WORLD_TYPE)).Length;
-
-        if (worldID == worldIDCount - 1) {
-            WorldSwitcher((WORLD_TYPE)0);
-            return (WORLD_TYPE)0;
-        }
-        WorldSwitcher((WORLD_TYPE)worldID + 1);
-        return (WORLD_TYPE)worldID + 1;
+    public void LoadNextWorld()
+    {
+        _currentWorldIndex = (_currentWorldIndex + 1) % _worlds.Length;
+        WORLD_TYPE worldToLoad = _worlds[_currentWorldIndex].GetComponent<WorldSettings>().worldType;
+        WorldSwitcher(worldToLoad);
     }
 }
