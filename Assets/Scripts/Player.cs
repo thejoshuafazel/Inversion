@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -6,17 +7,20 @@ public class Player : MonoBehaviour
     [SerializeField] float _moveSpeed = 10f;
     [SerializeField] float _jumpSpeed = 10f;
     [SerializeField] LayerMask _platformLayerMask;
-    
+    [SerializeField] Sprite[] _playerSprites;
+    [SerializeField] int _startingSpriteIndex;
+
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
     private GameManager _gameManager;
     private BoxCollider2D _boxCollider;
+    private int _currentSpriteIndex;
     private bool _jump;
 
     private void Start()
     {
         CacheData();
-        UpdatePlayerSprite();
+        UpdatePlayerSprite(_startingSpriteIndex);
     }
 
     private void FixedUpdate()
@@ -57,7 +61,7 @@ public class Player : MonoBehaviour
         //Debug.DrawRay(_boxCollider.bounds.center + new Vector3(_boxCollider.bounds.extents.x, 0), Vector2.down * (_boxCollider.bounds.extents.y + extraHeight), raycolor);
         //Debug.DrawRay(_boxCollider.bounds.center - new Vector3(_boxCollider.bounds.extents.x, 0), Vector2.down * (_boxCollider.bounds.extents.y + extraHeight), raycolor);
         //Debug.DrawRay(_boxCollider.bounds.center - new Vector3(_boxCollider.bounds.extents.x, _boxCollider.bounds.extents.y + extraHeight), Vector2.right * (_boxCollider.bounds.extents.x * 2f), raycolor);
-        //-------Can remove after playtesting
+        //------------Can remove after playtesting
 
         return raycatHit.collider != null;
     }
@@ -70,16 +74,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void UpdatePlayerSprite()
+    private void UpdatePlayerSprite(int? startingSpriteIndex = null)
     {
-        //if (_normalWorld)
-        //{
-        //    _spriteRenderer.color = Color.white;
-        //}
-        //else
-        //{
-        //    _spriteRenderer.color = Color.black;
-        //}
+        _currentSpriteIndex = startingSpriteIndex == null ? _currentSpriteIndex + 1 : _startingSpriteIndex;
+        _currentSpriteIndex = _currentSpriteIndex % _playerSprites.Length;
+
+        _spriteRenderer.sprite = _playerSprites[_currentSpriteIndex];
     }
 
     private void JumpAndInvert()
