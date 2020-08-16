@@ -4,15 +4,29 @@ public enum WORLD_TYPE { WHITE, BLACK }
 
 public class GameManager : MonoBehaviour
 {
-    public WORLD_TYPE _startingWorld;
-    //public Color _levelColors;
-    public GameObject[] _worlds;
+    [SerializeField] WORLD_TYPE _startingWorld;
+    [SerializeField] GameObject[] _worlds;
+    [SerializeField] bool _randomizeStartWorld;
 
     private int _currentWorldIndex;
 
     private void Awake()
     {
+        SetUpSingleton();
+        _startingWorld = _randomizeStartWorld ? (WORLD_TYPE) Random.Range(0, _worlds.Length) : _startingWorld;
         WorldSwitcher(_startingWorld);
+    }
+
+    private void SetUpSingleton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void WorldSwitcher(WORLD_TYPE worldToLoad)
@@ -40,4 +54,3 @@ public class GameManager : MonoBehaviour
         WorldSwitcher(worldToLoad);
     }
 }
-

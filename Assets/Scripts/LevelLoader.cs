@@ -5,21 +5,22 @@ public class LevelLoader : MonoBehaviour
 {
     private static LevelLoader _instance;
 
-    //private void Awake()
-    //{
-    //    DontDestroyOnLoad(gameObject);
+    void Awake()
+    {
+        SetUpSingleton();
+    }
 
-    //    LevelLoader _instance = FindObjectOfType<LevelLoader>();
-
-    //    if (_instance != null && _instance != this)
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //    else
-    //    {
-    //        _instance = this;
-    //    }
-    //}
+    private void SetUpSingleton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     public void LoadNextLevel()
     {
