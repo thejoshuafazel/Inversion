@@ -103,7 +103,10 @@ public class Player : MonoBehaviour
     private void Move()
     {
         var movementX = Input.GetAxis("Horizontal")  * Time.deltaTime * _moveSpeed;
+        
         transform.position = new Vector2(transform.position.x + movementX, transform.position.y);
+
+        _spriteRenderer.flipX = Mathf.Sign(movementX) < 0;
     }
 
     private void Invert()
