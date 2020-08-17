@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
     private GameManager _gameManager;
+    private LevelLoader _levelLoader;
     private BoxCollider2D _boxCollider;
     private int _currentSpriteIndex;
     private bool _jump;
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = FindObjectOfType<GameManager>();
+        _levelLoader = FindObjectOfType<LevelLoader>();
     }
 
     private bool IsGrounded()
@@ -72,6 +74,10 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             _jump = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            _levelLoader.LoadMainMenu();
         }
     }
 
