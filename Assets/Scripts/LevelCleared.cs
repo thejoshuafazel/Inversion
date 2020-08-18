@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelCleared : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class LevelCleared : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _levelLoader.LoadNextLevel();
+        int sceneToLoad = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        _levelLoader.LoadScene(sceneToLoad);
     }
 }

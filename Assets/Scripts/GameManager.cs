@@ -12,21 +12,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SetUpSingleton();
         _startingWorld = _randomizeStartWorld ? (WORLD_TYPE) Random.Range(0, _worlds.Length) : _startingWorld;
         WorldSwitcher(_startingWorld);
-    }
-
-    private void SetUpSingleton()
-    {
-        if (FindObjectsOfType(GetType()).Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
     }
 
     private void WorldSwitcher(WORLD_TYPE worldToLoad)
