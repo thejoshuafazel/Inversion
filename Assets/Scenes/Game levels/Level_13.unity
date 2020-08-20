@@ -7437,7 +7437,7 @@ Transform:
   - {fileID: 295166538}
   - {fileID: 207665232}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &417320264
 MonoBehaviour:
@@ -7580,7 +7580,7 @@ PrefabInstance:
     - target: {fileID: 5449499650360047737, guid: 6d64ce99dbef5ec40b088c6da49c8531,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5449499650360047737, guid: 6d64ce99dbef5ec40b088c6da49c8531,
         type: 3}
@@ -7654,6 +7654,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d64ce99dbef5ec40b088c6da49c8531, type: 3}
+--- !u!95 &678918030 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9147624315976262393, guid: 6d64ce99dbef5ec40b088c6da49c8531,
+    type: 3}
+  m_PrefabInstance: {fileID: 678918029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1037396355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7699,7 +7705,7 @@ PrefabInstance:
     - target: {fileID: 7411513863834861223, guid: 730f19a7ab9851e40941e22598932753,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7411513863834861223, guid: 730f19a7ab9851e40941e22598932753,
         type: 3}
@@ -78127,6 +78133,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3638730716021478257, guid: 9b0442035e8d5ba41b86cd9fdc59b093,
+        type: 3}
+      propertyPath: _transition
+      value: 
+      objectReference: {fileID: 678918030}
     - target: {fileID: 3638730716021478258, guid: 9b0442035e8d5ba41b86cd9fdc59b093,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -78236,6 +78247,7 @@ MonoBehaviour:
   _worlds:
   - {fileID: 1978880581}
   - {fileID: 417320261}
+  _transitionSprites: []
   _randomizeStartWorld: 0
 --- !u!1 &1835299013
 GameObject:
@@ -82203,7 +82215,7 @@ Transform:
   - {fileID: 1835299014}
   - {fileID: 158000436}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978880584
 MonoBehaviour:

@@ -1,30 +1,43 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
-    private static LevelLoader _instance;
+    [SerializeField] Animator _transition;
+    [SerializeField] float _transitionTime = 1.0f;
 
+    private static LevelLoader _instance;
+    
     void Awake()
     {
-        SetUpSingleton();
-    }
-
-    private void SetUpSingleton()
-    {
-        if (FindObjectsOfType(GetType()).Length > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        Debug.Log("LevelLoader Awake");
     }
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadScene(int sceneIndex)
+    {
+        StartCoroutine(LoadLevel(sceneIndex));
+    }
+
+    IEnumerator LoadLevel(int sceneIndex)
+    {
+        _transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(_transitionTime);
+
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void RestartLevel()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadMainMenu()
@@ -35,15 +48,6 @@ public class LevelLoader : MonoBehaviour
     public void LoadOptions()
     {
         SceneManager.LoadScene("Options");
-    }
-
-    public void LoadScene(int sceneIndex)
-    {
-        SceneManager.LoadScene(sceneIndex);
-    }
-
-    public void RestartLevel() {
-        LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Quit()

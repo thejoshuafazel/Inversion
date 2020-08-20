@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public enum WORLD_TYPE { WHITE, BLACK }
 
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] WORLD_TYPE _startingWorld;
     [SerializeField] GameObject[] _worlds;
+    [SerializeField] Sprite[] _transitionSprites;
     [SerializeField] bool _randomizeStartWorld;
 
     private int _currentWorldIndex;
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
             {
                 worldGrid.SetActive(true);
                 _currentWorldIndex = worldNumber;
+                //FindObjectOfType<LevelLoader>().GetComponentInChildren<Image>().sprite = _transitionSprites[_currentWorldIndex];
             }
             else
             {
