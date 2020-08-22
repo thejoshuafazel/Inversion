@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private GameManager _gameManager;
     private LevelLoader _levelLoader;
     private BoxCollider2D _boxCollider;
+    private AudioSource _audioSource;
     private int _currentSpriteIndex;
     private bool _jump;
 
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = FindObjectOfType<GameManager>();
         _levelLoader = FindObjectOfType<LevelLoader>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private bool IsGrounded()
@@ -104,6 +106,7 @@ public class Player : MonoBehaviour
     {
         _rigidBody.AddForce(new Vector2(0, _jumpSpeed), ForceMode2D.Impulse);
         _jump = false;
+        _audioSource.Play();
     }
 
     private void Move()

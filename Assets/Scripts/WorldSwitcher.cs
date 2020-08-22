@@ -5,10 +5,12 @@ using UnityEngine;
 public class WorldSwitcher : MonoBehaviour
 {
     private GameManager _gameManager;
+    private AudioSource _audioSource;
     
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _audioSource = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -16,6 +18,7 @@ public class WorldSwitcher : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _gameManager.LoadNextWorld();
+            _audioSource.Play();
         }
     }
 }

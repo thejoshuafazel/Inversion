@@ -9905,21 +9905,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 956242444138750682, guid: 2b0d681b76fdb134a9cd3474c39a6237,
-        type: 3}
-      propertyPath: _startingSpriteIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 956242444138750682, guid: 2b0d681b76fdb134a9cd3474c39a6237,
-        type: 3}
-      propertyPath: _moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 956242444138750682, guid: 2b0d681b76fdb134a9cd3474c39a6237,
-        type: 3}
-      propertyPath: _jumpSpeed
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b0d681b76fdb134a9cd3474c39a6237, type: 3}
 --- !u!1001 &9147624315976262390
@@ -10038,6 +10023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: View Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449499650360047741, guid: 6d64ce99dbef5ec40b088c6da49c8531,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d64ce99dbef5ec40b088c6da49c8531, type: 3}

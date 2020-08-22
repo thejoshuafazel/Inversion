@@ -11121,6 +11121,11 @@ PrefabInstance:
       propertyPath: _jumpSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 956242444138750682, guid: 2b0d681b76fdb134a9cd3474c39a6237,
+        type: 3}
+      propertyPath: _startingSpriteIndex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b0d681b76fdb134a9cd3474c39a6237, type: 3}
 --- !u!1 &1978880581

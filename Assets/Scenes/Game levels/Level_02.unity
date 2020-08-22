@@ -10072,7 +10072,9 @@ MonoBehaviour:
   _worlds:
   - {fileID: 1978880581}
   - {fileID: 417320261}
-  _transitionSprites: []
+  _transitionSprites:
+  - {fileID: 21300000, guid: c5b77f08cc274c84fa253fcc11376559, type: 3}
+  - {fileID: 21300000, guid: c8fbf73e6fb7fea489345962c74f1030, type: 3}
   _randomizeStartWorld: 0
 --- !u!1001 &1804298725
 PrefabInstance:
@@ -10319,6 +10321,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: View Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449499650360047741, guid: 6d64ce99dbef5ec40b088c6da49c8531,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d64ce99dbef5ec40b088c6da49c8531, type: 3}
