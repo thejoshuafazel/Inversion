@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public enum WORLD_TYPE { WHITE, BLACK }
-
 public class GameManager : MonoBehaviour
 {
     [SerializeField] WORLD_TYPE _startingWorld;
@@ -47,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextWorld()
     {
         _currentWorldIndex = (_currentWorldIndex + 1) % _worlds.Length;
-        WORLD_TYPE worldToLoad = _worlds[_currentWorldIndex].GetComponent<WorldSettings>()._worldType;
+        WORLD_TYPE worldToLoad = _worlds[_currentWorldIndex].GetComponent<WorldSettings>().WorldType;
         WorldSwitcher(worldToLoad);
     }
 }

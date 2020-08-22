@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -28,13 +27,12 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        JumpAndInvert();
+        PerformJumpActions();
     }
 
     private void Update()
     {
         ReadInput();
-        //IsGrounded();//-------------Code for debugging only
     }
 
     private void CacheData()
@@ -53,34 +51,16 @@ public class Player : MonoBehaviour
         RaycastHit2D raycatHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0f,
                                                     Vector2.down, extraHeight, _platformLayerMask);
 
-        //-------------Code for debugging only
-        //Color raycolor;
-        //if (raycatHit.collider != null)
-        //{
-        //    raycolor = Color.green;
-        //}
-        //else
-        //{
-        //    raycolor = Color.red;
-        //}
-        //Debug.DrawRay(_boxCollider.bounds.center + new Vector3(_boxCollider.bounds.extents.x, 0), Vector2.down * (_boxCollider.bounds.extents.y + extraHeight), raycolor);
-        //Debug.DrawRay(_boxCollider.bounds.center - new Vector3(_boxCollider.bounds.extents.x, 0), Vector2.down * (_boxCollider.bounds.extents.y + extraHeight), raycolor);
-        //Debug.DrawRay(_boxCollider.bounds.center - new Vector3(_boxCollider.bounds.extents.x, _boxCollider.bounds.extents.y + extraHeight), Vector2.right * (_boxCollider.bounds.extents.x * 2f), raycolor);
-        //------------Can remove after playtesting
-
         return raycatHit.collider != null;
     }
 
     private void ReadInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-        {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             _jump = true;
-        }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape))
             _levelLoader.LoadMainMenu();
-        }
     }
 
     private void UpdatePlayerSprite(int? startingSpriteIndex = null)
@@ -91,14 +71,13 @@ public class Player : MonoBehaviour
         _spriteRenderer.sprite = _playerSprites[_currentSpriteIndex];
     }
 
-    private void JumpAndInvert()
+    private void PerformJumpActions()
     {
         if (_jump)
         {
             Jump();
             Invert();
-
-            Debug.Log("Player was grounded and jumped. World should be inverted");
+            _audioSource.Play();
         }
     }
 
@@ -106,15 +85,12 @@ public class Player : MonoBehaviour
     {
         _rigidBody.AddForce(new Vector2(0, _jumpSpeed), ForceMode2D.Impulse);
         _jump = false;
-        _audioSource.Play();
     }
 
     private void Move()
     {
-        var movementX = Input.GetAxis("Horizontal")  * Time.deltaTime * _moveSpeed;
-        
+        var movementX = Input.GetAxis("Horizontal") * Time.deltaTime * _moveSpeed;
         transform.position = new Vector2(transform.position.x + movementX, transform.position.y);
-
         _spriteRenderer.flipX = Mathf.Sign(movementX) < 0;
     }
 

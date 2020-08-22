@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] Animator _transition;
     [SerializeField] float _transitionTime = 1.0f;
 
-    private static LevelLoader _instance;
-    
     public void LoadNextLevel()
     {
-        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int sceneToLoad = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        LoadScene(sceneToLoad);
     }
 
     public void LoadScene(int sceneIndex)
@@ -37,12 +34,12 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        LoadScene(0);
     }
 
     public void LoadOptions()
     {
-        SceneManager.LoadScene("Options");
+        LoadScene(1);
     }
 
     public void Quit()
