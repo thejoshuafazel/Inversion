@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _randomizeStartWorld;
 
     private int _currentWorldIndex;
+    private Image _circleWipeImage;
 
-    private void Awake()
+    private void Start()
     {
-        _startingWorld = _randomizeStartWorld ? (WORLD_TYPE) Random.Range(0, _worlds.Length) : _startingWorld;
+        _circleWipeImage = FindObjectOfType<CircleWipe>().gameObject.GetComponent<Image>();
+        _startingWorld = _randomizeStartWorld ? (WORLD_TYPE)Random.Range(0, _worlds.Length) : _startingWorld;
         WorldSwitcher(_startingWorld);
     }
 
@@ -28,13 +30,18 @@ public class GameManager : MonoBehaviour
             {
                 worldGrid.SetActive(true);
                 _currentWorldIndex = worldNumber;
-                //FindObjectOfType<LevelLoader>().GetComponentInChildren<Image>().sprite = _transitionSprites[_currentWorldIndex];
+                UpdateTransitionImage();
             }
             else
             {
                 worldGrid.SetActive(false);
             }
         }
+    }
+
+    private void UpdateTransitionImage()
+    {
+        _circleWipeImage.sprite = _transitionSprites[_currentWorldIndex];
     }
 
     public void LoadNextWorld()

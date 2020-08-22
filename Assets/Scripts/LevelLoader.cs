@@ -11,11 +11,6 @@ public class LevelLoader : MonoBehaviour
 
     private static LevelLoader _instance;
     
-    void Awake()
-    {
-        Debug.Log("LevelLoader Awake");
-    }
-
     public void LoadNextLevel()
     {
         LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
